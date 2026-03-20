@@ -8,9 +8,9 @@ const Installations = () => {
       <p className='text-center text-gray-400'>Explore All Apps on the Market developed by us. We code for Millions</p>
       </div>
       <div className='flex py-10 items-center md:justify-between justify-center flex-col md:flex-row gap-3'>
-        <h3 className='text-2xl underline font-medium'>(123) Apps Found</h3>
+        <h3 className='text-2xl underline font-medium'>(0) Apps Found</h3>
         <div>
-          <select defaultValue="Pick a color" className="select">
+          <select defaultValue="Pick a color" className="select w-44">
             <option disabled={true}>Sort By Size</option>
             <option>Low-High</option>
             <option>High-Low</option>

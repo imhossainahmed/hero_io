@@ -11,7 +11,7 @@ const Apps = () => {
           <p className='text-center text-gray-400'>Explore All Apps on the Market developed by us. We code for Millions</p>
       </div>
       <div className='flex py-10 items-center md:justify-between justify-center flex-col md:flex-row gap-3'>
-        <h3 className='text-2xl underline font-medium'>(123) Apps Found</h3>
+        <h3 className='text-2xl underline font-medium'>({apps.length ? apps.length : 0}) Apps Found</h3>
         <div>
           <label className="input w-84">
             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
