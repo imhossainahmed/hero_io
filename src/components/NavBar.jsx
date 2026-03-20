@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.png";
 import { Link, useLocation } from 'react-router-dom';
 import { Github, Menu } from 'lucide-react';
 import { cn } from '../utils/utils';
@@ -14,7 +14,7 @@ const NavBar = () => {
 
   return (
     <div className='bg-base-100 sticky z-1 top-0 shadow-sm'>
-      <div className="navbar container mx-auto">
+      <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

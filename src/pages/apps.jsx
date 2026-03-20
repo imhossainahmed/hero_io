@@ -6,7 +6,7 @@ const apps = () => {
   const { apps } = useApp();
   console.log("aa",apps)
   return (
-    <div className='container mx-auto py-16 px-4'>
+    <div className='w-11/12 mx-auto py-16 px-4'>
       <div className='text-center'>
           <h2 className='text-4xl font-bold mb-2'>Our All Applications</h2>
           <p className='text-center text-gray-400'>Explore All Apps on the Market developed by us. We code for Millions</p>

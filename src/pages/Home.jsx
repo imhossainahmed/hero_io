@@ -65,7 +65,7 @@ const Home = () => {
 
       {/* Trending Apps Section */}
       <section className="py-24 px-4 bg-base-100">
-        <div className="max-w-7xl mx-auto space-y-12">
+        <div className="w-11/12 mx-auto space-y-12">
           <div className="text-center space-y-4">
             <h2 className="text-5xl font-black text-[#1E293B]">Trending Apps</h2>
             <p className="text-lg text-base-content/60">Explore All Trending Apps on the Market developed by us</p>
