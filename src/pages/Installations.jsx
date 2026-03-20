@@ -4,8 +4,8 @@ const Installations = () => {
   return (
     <div className='w-11/12 mx-auto py-16 px-4'>
       <div className='text-center'>
-      <h2 className='text-4xl font-bold mb-2'>Our All Applications</h2>
-      <p className='text-center text-gray-400'>Explore All Apps on the Market developed by us. We code for Millions</p>
+      <h2 className='text-4xl font-bold mb-2'>Your Installed Apps</h2>
+      <p className='text-center text-gray-400'>Explore All Trending Apps on the Market developed by us</p>
       </div>
       <div className='flex py-10 items-center md:justify-between justify-center flex-col md:flex-row gap-3'>
         <h3 className='text-2xl underline font-medium'>(0) Apps Found</h3>

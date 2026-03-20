@@ -4,7 +4,11 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [apps, setApps] = useState([]);
-  
+    const [installedApps, setInstalledApps] = useState(() => {
+    const saved = localStorage.getItem('installedApps');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const [isLoading, setIsLoading] = useState(true);
   const [toast, setToast] = useState(null);
 
@@ -34,6 +38,8 @@ export const AppProvider = ({ children }) => {
     <AppContext.Provider value={{ 
       apps, 
       isLoading, 
+      installedApps,
+      setInstalledApps,
       setIsLoading,
       toast
     }}>

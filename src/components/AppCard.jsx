@@ -24,7 +24,7 @@ const AppCard = ({ app }) => {
             <span>{app.ratingAvg}</span>
           </div>
         </div>
-        <Link to={`/app/${app.id}`} className="absolute inset-0 z-10 opacity-0">View Details</Link>
+        <Link to={`/apps/${app.id}`} className="absolute inset-0 z-10 opacity-0">View Details</Link>
       </div>
     </div>
   );
