@@ -2,9 +2,8 @@ import AppCard from "../components/AppCard";
 import { useApp } from "../context/AppContext";
 
 
-const apps = () => {
+const Apps = () => {
   const { apps } = useApp();
-  console.log("aa",apps)
   return (
     <div className='w-11/12 mx-auto py-16 px-4'>
       <div className='text-center'>
@@ -40,4 +39,4 @@ const apps = () => {
   );
 };
 
-export default apps;
+export default Apps;

@@ -1,6 +1,4 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Smartphone, Apple, ArrowRight, Star, Download, ShieldCheck } from 'lucide-react';
 import AppCard from '../components/AppCard.jsx';
 import { useApp } from '../context/AppContext.jsx';
 import HeroBanner from "../assets/hero.png";
