@@ -28,15 +28,15 @@ const AppDetails = () => {
   return (
   <section>
     <div className="py-12 px-6 md:px-12 max-w-7xl mx-auto">
-    <div className="flex flex-col md:flex-row gap-12 items-start">
+    <div className="flex flex-col lg:flex-row gap-8 items-start">
 
-      <div className="w-full md:w-96 aspect-square bg-white shadow rounded flex items-center justify-center p-12 border border-gray-50">
+      <div className="max-w-96 aspect-square bg-white shadow rounded flex items-center justify-center p-12 border border-gray-50">
         <div className="relative w-full h-full">
           <img src={app?.image} alt={app?.title} />
         </div>
       </div>
 
-      <div className="flex-1 space-y-8">
+      <div className="grow space-y-4">
         <div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{app?.title}</h1>
           <p className="text-lg text-gray-500 font-medium">Developed by <span className='text-indigo-500'>{app?.companyName}</span></p>
