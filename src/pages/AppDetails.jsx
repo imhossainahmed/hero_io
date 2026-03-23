@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Download, Star, MessageSquare, ShieldCheck, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Download, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import DownlaodImg from "../assets/icon-downloads.png";
 import RatingImg from "../assets/icon-ratings.png";
 import ReviewImg from "../assets/icon-review.png";
