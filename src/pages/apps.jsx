@@ -1,5 +1,5 @@
 import AppCard from "../components/AppCard";
-import { useApp } from "../context/AppContext";
+import { useApp } from '../context/useApp';
 
 
 const Apps = () => {

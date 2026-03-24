@@ -4,7 +4,7 @@ import { formatNumber } from '../utils/utils';
 
 const AppCard = ({ app }) => {
   return (
-    <div className="card shadow-lg cursor-pointer  bg-white hover:bg-base-200 hover:-translate-y-2 transition-all duration-200   p-4 gap-4">
+    <div className="card shadow-md cursor-pointer  bg-white hover:bg-base-200 hover:-translate-y-2 transition-all duration-200   p-4 gap-4">
       <figure className="rounded-md">
         <img 
           src={app.image} 

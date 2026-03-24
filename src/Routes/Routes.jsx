@@ -12,20 +12,27 @@ export const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/",
+      { 
+        index: true,
         element: <Home />,
+        loader: () => fetch('/apps.json')
       },
       {
-        path: "/apps",
+        path: "apps",
         element: <Apps />
       },
       {
-        path: "/apps/:id",
-        element: <AppDetails />
+        path: "apps/:id",
+        element: <AppDetails />,
+        loader: async ({ params }) => {
+          const res = await fetch("/apps.json");
+          const apps = await res.json();
+          const app = apps.find(a => a.id === parseInt(params.id));
+          return app || null;
+        }
       },
       {
-        path: "/installation",
+        path: "installation",
         element: <Installations />
       }
     ],

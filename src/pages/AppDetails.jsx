@@ -1,45 +1,48 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { Download, ArrowLeft, CheckCircle } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context/useApp';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import DownlaodImg from "../assets/icon-downloads.png";
 import RatingImg from "../assets/icon-ratings.png";
 import ReviewImg from "../assets/icon-review.png";
+import ErrorImg from "../assets/App-Error.png";
 
 const AppDetails = () => {
-  const { id } = useParams();
+  const apps = useLoaderData();
   const navigate = useNavigate();
-  const { apps, installApp, installedApps } = useApp();
+  const { installApp, installedApps } = useApp();
 
-  const app = apps.find(a => a.id === parseInt(id));
-  console.log(app)
-  if (!app) {
+  if (!apps) {
     return (
-      <div className="text-center py-20 space-y-6">
-        <h2 className="text-3xl font-bold">App Not Found</h2>
-        <button onClick={() => navigate('/apps')} className="btn btn-primary gap-2">
-          <ArrowLeft size={20} /> Back to Marketplace
-        </button>
+      <div className="flex items-center justify-center h-[90vh]">
+        <div className='flex items-center justify-center gap-4 p-4 flex-col'>
+          <img src={ErrorImg} alt="App Not Found" className='w-76'/>
+          <h1 className="font-bold uppercase text-4xl">OPPS!! APP NOT FOUND</h1>
+          <h3 className='text-base text-gray-500'>The App you are requesting is not found on our system.  please try another apps</h3>
+          <button onClick={() => navigate('/apps')} className="btn btn-lg bg-linear-to-t from-violet-700 rounded-md to-purple-500 text-white">
+            <ArrowLeft size={20} /> Back to Marketplace
+          </button>
+        </div>
       </div>
     );
   }
 
-  const isInstalled = installedApps.some(a => a.id === app.id);
+  const isInstalled = installedApps.some(a => a.id === apps.id);
   return (
   <section>
     <div className="py-12 px-6 md:px-12 max-w-7xl mx-auto">
     <div className="flex flex-col lg:flex-row gap-8 items-start">
 
-      <div className="max-w-96 aspect-square bg-white shadow rounded flex items-center justify-center p-12 border border-gray-50">
+      <div className="max-w-96 aspect-square bg-white shadow rounded-md flex items-center justify-center p-12 border border-gray-50">
         <div className="relative w-full h-full">
-          <img src={app?.image} alt={app?.title} />
+          <img src={apps?.image} alt={apps?.title} className='object-cover rounded-md w-full'/>
         </div>
       </div>
 
       <div className="grow space-y-4">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{app?.title}</h1>
-          <p className="text-lg text-gray-500 font-medium">Developed by <span className='text-indigo-500'>{app?.companyName}</span></p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{apps?.title}</h1>
+          <p className="text-lg text-gray-500 font-medium">Developed by <span className='text-indigo-500'>{apps?.companyName}</span></p>
         </div>
 
         <div className="flex flex-wrap gap-12 border-y border-gray-100 py-8">
@@ -48,7 +51,7 @@ const AppDetails = () => {
               <img src={DownlaodImg} alt='Donwload Icons' className='w-6 h-6'/>
               <span className="text-sm font-semibold uppercase tracking-wider opacity-60">Downloads</span>
             </div>
-            <span className="text-4xl font-bold text-gray-900">{app?.downloads}</span>
+            <span className="text-4xl font-bold text-gray-900">{apps?.downloads}</span>
           </div>
 
           <div className="flex flex-col gap-1">
@@ -56,7 +59,7 @@ const AppDetails = () => {
               <img src={RatingImg} alt='Donwload Icons' className='w-6 h-6'/>
               <span className="text-sm font-semibold uppercase tracking-wider opacity-60">Average Ratings</span>
             </div>
-            <span className="text-4xl font-bold text-gray-900">{app?.ratingAvg}</span>
+            <span className="text-4xl font-bold text-gray-900">{apps?.ratingAvg}</span>
           </div>
 
           <div className="flex flex-col gap-1">
@@ -64,20 +67,20 @@ const AppDetails = () => {
               <img src={ReviewImg} alt='Donwload Icons' className='w-6 h-6'/>
               <span className="text-sm font-semibold uppercase tracking-wider opacity-60">Total Reviews</span>
             </div>
-            <span className="text-4xl font-bold text-gray-900">{app?.reviews}</span>
+            <span className="text-4xl font-bold text-gray-900">{apps?.reviews}</span>
           </div>
         </div>
 
         <div className="flex gap-4 pt-4">
           <button 
             className={`btn btn-lg rounded grow md:grow-0 md:min-w-5 ${isInstalled ? 'btn-disabled bg-base-200' : 'btn-success text-white'}`}
-            onClick={() => installApp(app)}
+            onClick={() => installApp(apps)}
             disabled={isInstalled}
           >
             {isInstalled ? (
-              <span className="flex items-center gap-2"><CheckCircle size={24} /> Installed Now ({app?.size})</span>
+              <span className="flex items-center gap-2"><CheckCircle size={24} /> Installed Now ({apps?.size})</span>
             ) : (
-              <span className="flex items-center gap-2"><Download size={24} /> Install Now ({app?.size})</span>
+              <span className="flex items-center gap-2"><Download size={24} /> Install Now ({apps?.size})</span>
             )}
           </button>
         </div>
@@ -91,7 +94,7 @@ const AppDetails = () => {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           layout="vertical"
-          data={app?.ratings}
+          data={apps?.ratings}
           margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis type="number" hide />
@@ -107,7 +110,7 @@ const AppDetails = () => {
             contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
           />
           <Bar dataKey="count" radius={[0, 4, 4, 0]} barSize={24}>
-            {app.ratings.map((entry, index) => (
+            {apps.ratings.map((entry, index) => (
               <Cell key={`cell-${index}`} fill="#f97316" />
             ))}
           </Bar>
@@ -126,7 +129,7 @@ const AppDetails = () => {
   <div className="py-12 px-6 md:px-12 max-w-7xl mx-auto border-t border-gray-100">
     <h2 className="text-2xl font-bold text-gray-900 mb-8">Description</h2>
     <div className="prose prose-lg max-w-none text-gray-600 space-y-8 leading-relaxed">
-      <p>{app?.description}</p>
+      <p>{apps?.description}</p>
     </div>
   </div>
     </section>

@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import AppCard from '../components/AppCard.jsx';
-import { useApp } from '../context/AppContext.jsx';
 import HeroBanner from "../assets/hero.png";
 import PlayStoreImg from "../assets/playstore.png";
 import AppStoreImg from "../assets/appstore.png";
+import { Suspense } from 'react';
 
 const Home = () => {
-  const { apps } = useApp();
+  const apps = useLoaderData();
   const topApps = apps.slice(0, 8);
 
   const stats = [
@@ -61,7 +61,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Trending Apps Section */}
       <section className="py-24 px-4 bg-base-100">
         <div className="w-11/12 mx-auto space-y-12">
           <div className="text-center space-y-4">
@@ -70,9 +69,11 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {topApps.map((app) => (
-              <AppCard key={app.id} app={app} />
-            ))}
+            <Suspense>
+              {topApps.map((app) => (
+                <AppCard key={app.id} app={app} />
+              ))}
+            </Suspense>
           </div>
 
           <div className="flex justify-center pt-8">
