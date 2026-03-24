@@ -78,7 +78,7 @@ const AppDetails = () => {
             disabled={isInstalled}
           >
             {isInstalled ? (
-              <span className="flex items-center gap-2"><CheckCircle size={24} /> Installed Now ({apps?.size})</span>
+              <span className="flex items-center gap-2"><CheckCircle size={24} /> Alredy Installed</span>
             ) : (
               <span className="flex items-center gap-2"><Download size={24} /> Install Now ({apps?.size})</span>
             )}

@@ -28,6 +28,17 @@ export const AppProvider = ({ children }) => {
     fetchApps();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('installedApps', JSON.stringify(installedApps));
+  }, [installedApps]);
+
+  const installApp = (app) => {
+    if(!installedApps.find(a => a.id === app.id)) {
+      setInstalledApps([...installedApps, app])
+      showToast(`${app.title} installed successfully!`);
+    }
+  }
+
   const showToast = (message) => {
     setToast(message);
     setTimeout(() => setToast(null), 3000);
@@ -37,11 +48,12 @@ export const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         apps,
-        isLoading,
-        installedApps,
-        setInstalledApps,
         toast,
         showToast,
+        isLoading,
+        installApp,
+        installedApps,
+        setInstalledApps,
       }}
     >
       {children}
