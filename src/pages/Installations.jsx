@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trash2, Download, Smartphone, SlidersHorizontal } from 'lucide-react';
+import { Trash2, Download, ArrowLeft, SlidersHorizontal } from 'lucide-react';
 import { useApp } from '../context/useApp.js';
 import { Link } from 'react-router-dom';
 import { formatNumber } from '../utils/utils.js';
@@ -20,12 +20,12 @@ const Installation = () => {
       <div className="text-center py-20 space-y-6 max-w-md mx-auto">
         <div className="flex justify-center">
           <div className="bg-base-200 p-8 rounded-full">
-            <Smartphone size={64} className="text-base-content/20" />
+            <Download size={64} className="text-base-content/20" />
           </div>
         </div>
         <h2 className="text-3xl font-bold">No Apps Installed</h2>
-        <p className="text-base-content/60 text-lg">You haven't installed any applications yet. Browse our marketplace to find amazing apps!</p>
-        <Link to="/apps" className="btn btn-primary btn-lg rounded-2xl w-full">Browse Marketplace</Link>
+        <p className="text-base-content/60 text-lg">You haven't installed any applications yet.</p>
+        <Link to="/apps" className="btn btn-lg bg-linear-to-t w-full from-violet-700 rounded-md to-purple-500 text-white"><ArrowLeft size={20} /> Back to Marketplace</Link>
       </div>
     );
   }

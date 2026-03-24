@@ -39,6 +39,14 @@ export const AppProvider = ({ children }) => {
     }
   }
 
+  const uninstallApp = (appId) => {
+    const app = installedApps.find(a => a.id === appId);
+    setInstalledApps(installedApps.filter(a => a.id !== appId));
+    if (app) {
+      showToast(`${app.title} uninstalled.`);
+    }
+  };
+
   const showToast = (message) => {
     setToast(message);
     setTimeout(() => setToast(null), 3000);
@@ -52,6 +60,7 @@ export const AppProvider = ({ children }) => {
         showToast,
         isLoading,
         installApp,
+        uninstallApp,
         installedApps,
         setInstalledApps,
       }}
