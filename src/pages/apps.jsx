@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import AppCard from "../components/AppCard.jsx";
 import { useLoaderData } from "react-router-dom";
 
-const AllApps = () => {
+const Apps = () => {
   const apps = useLoaderData();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -83,4 +83,4 @@ const AllApps = () => {
   );
 };
 
-export default AllApps;
+export default Apps;

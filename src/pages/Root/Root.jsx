@@ -7,10 +7,10 @@ import Toast from "../../components/Toast";
 const Root= () => {
   const { toast, isLoading } = useApp();
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-base-200">
       <NavBar />
       <main className="grow container mx-auto px-4 py-8">
-        {isLoading ? <div className="w-full flex items-center justify-center h-40">
+        {isLoading ? <div className="w-full flex items-center justify-center h-screen">
             <span className="loading loading-infinity loading-lg"></span>
           </div> : <Outlet />}
       </main>

@@ -21,7 +21,7 @@ const AppCard = ({ app }) => {
           </div>
           <div className="flex badge badge-soft badge-warning  items-center gap-1 text-warning font-bold text-sm">
             <Star size={14} className="fill-warning" />
-            <span>{app.ratingAvg}</span>
+            <span>{app?.ratingAvg}</span>
           </div>
         </div>
         <Link to={`/apps/${app.id}`} className="absolute inset-0 z-10 opacity-0">View Details</Link>
