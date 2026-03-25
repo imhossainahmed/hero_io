@@ -55,21 +55,18 @@ const Apps = () => {
         </div>
 
         {apps.length === 0 || isSearching ? (
-          // 🔄 Skeleton while loading/searching
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {[...Array(8)].map((_, i) => (
               <AppCardSkeleton key={i} />
             ))}
           </div>
         ) : filteredApps.length > 0 ? (
-          // ✅ Show apps
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {filteredApps.map((app) => (
               <AppCard key={app.id} app={app} />
             ))}
           </div>
         ) : (
-          // ❌ No results
           <div className="text-center py-20 space-y-4">
             <div className="flex justify-center">
               <Search size={64} className="text-base-content/20" />

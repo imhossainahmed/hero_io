@@ -11,7 +11,7 @@ const Installations = () => {
   const sortedApps = [...installedApps].sort((a, b) => {
     if (sortBy === 'size-desc') return b.size - a.size;
     if (sortBy === 'size-asc') return a.size - b.size;
-    return 0; // Default to newest (order of installation)
+    return 0;
   });
 
   if (installedApps.length === 0) {
