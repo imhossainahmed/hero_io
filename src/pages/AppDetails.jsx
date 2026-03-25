@@ -73,12 +73,12 @@ const AppDetails = () => {
 
         <div className="flex gap-4 pt-4">
           <button 
-            className={`btn btn-lg rounded grow md:grow-0 md:min-w-5 ${isInstalled ? 'btn-disabled bg-base-200' : 'btn-success text-white'}`}
+            className={`btn btn-lg rounded grow md:grow-0 md:min-w-5 ${isInstalled ? 'btn-disabled bg-base-400' : 'btn-success text-white'}`}
             onClick={() => installApp(apps)}
             disabled={isInstalled}
           >
             {isInstalled ? (
-              <span className="flex items-center gap-2"><CheckCircle size={24} /> Alredy Installed</span>
+              <span className="flex items-center gap-2"><CheckCircle size={24} /> Installed</span>
             ) : (
               <span className="flex items-center gap-2"><Download size={24} /> Install Now ({apps?.size})</span>
             )}

@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Search } from "lucide-react";
 import AppCard from "../components/AppCard.jsx";
 import { useLoaderData } from "react-router-dom";
+import AppCardSkeleton from "../components/AppCardSkeleton.jsx";
 
 const Apps = () => {
   const apps = useLoaderData();
@@ -17,6 +18,8 @@ const Apps = () => {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
+  const isSearching = searchQuery !== debouncedQuery;
+
   const filteredApps = useMemo(() => {
     return apps.filter((app) =>
       app.title.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
@@ -26,7 +29,7 @@ const Apps = () => {
 
   return (
     <div>
-      <div className="container mx-auto py-16 bg-base-100">
+      <div className="container mx-auto py-16">
         
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h1 className="text-4xl font-bold">Explore All Apps</h1>
@@ -51,17 +54,22 @@ const Apps = () => {
           </label>
         </div>
 
-        {apps.length === 0 ? (
-          <div className="w-full flex items-center justify-center h-40">
-            <span className="loading loading-infinity loading-lg"></span>
+        {apps.length === 0 || isSearching ? (
+          // 🔄 Skeleton while loading/searching
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+            {[...Array(8)].map((_, i) => (
+              <AppCardSkeleton key={i} />
+            ))}
           </div>
         ) : filteredApps.length > 0 ? (
+          // ✅ Show apps
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {filteredApps.map((app) => (
               <AppCard key={app.id} app={app} />
             ))}
           </div>
         ) : (
+          // ❌ No results
           <div className="text-center py-20 space-y-4">
             <div className="flex justify-center">
               <Search size={64} className="text-base-content/20" />

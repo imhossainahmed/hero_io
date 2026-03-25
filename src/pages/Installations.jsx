@@ -4,7 +4,7 @@ import { useApp } from '../context/useApp.js';
 import { Link } from 'react-router-dom';
 import { formatNumber } from '../utils/utils.js';
 
-const Installation = () => {
+const Installations = () => {
   const { installedApps, uninstallApp } = useApp();
   const [sortBy, setSortBy] = useState('newest');
 
@@ -16,7 +16,7 @@ const Installation = () => {
 
   if (installedApps.length === 0) {
     return (
-      <div className="text-center py-20 space-y-6 max-w-md mx-auto">
+      <div className="flex items-center justify-center flex-col h-[70vh] space-y-6 max-w-md mx-auto">
         <div className="flex justify-center">
           <div className="bg-base-200 p-8 rounded-full">
             <Download size={64} className="text-base-content/20" />
@@ -30,8 +30,8 @@ const Installation = () => {
   }
 
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+    <div className="min-h-[70vh] py-16 px-4 w-11/12 mx-auto">
+      <div className="flex mb-8 flex-col md:flex-row justify-between items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold">({installedApps.length}) Apps Found</h1>
         </div>
@@ -80,4 +80,4 @@ const Installation = () => {
   );
 };
 
-export default Installation;
+export default Installations;

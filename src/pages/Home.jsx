@@ -27,14 +27,14 @@ const Home = () => {
             Our goal is to turn your ideas into digital experiences that truly make an impact.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <button className="btn bg-white hover:bg-base-100 text-base-content border-base-300 rounded-lg px-8 gap-3 shadow-sm">
+            <a href='https://play.google.com/store/apps?hl=en' target='_blank' className="btn bg-white hover:bg-base-100 text-base-content border-base-300 rounded-lg px-8 gap-3 shadow-sm">
               <img src={PlayStoreImg} alt="Google Play" className="h-6" />
               <span className="font-bold">Google Play</span>
-            </button>
-            <button className="btn bg-white hover:bg-base-100 text-base-content border-base-300 rounded-lg px-8 gap-3 shadow-sm">
+            </a>
+            <a href='https://www.apple.com/app-store/' target='_blank' className="btn bg-white hover:bg-base-100 text-base-content border-base-300 rounded-lg px-8 gap-3 shadow-sm">
               <img src={AppStoreImg} alt="App Store" className="h-6" />
               <span className="font-bold">App Store</span>
-            </button>
+            </a>
           </div>
           
           <div className="pt-12 mx-auto">
