@@ -4,7 +4,7 @@ import AppCard from "../components/AppCard.jsx";
 import { useLoaderData } from "react-router-dom";
 import AppCardSkeleton from "../components/AppCardSkeleton.jsx";
 
-const Apps = () => {
+const AllApps = () => {
   const apps = useLoaderData();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -88,4 +88,4 @@ const Apps = () => {
   );
 };
 
-export default Apps;
+export default AllApps;

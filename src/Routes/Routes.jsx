@@ -3,7 +3,7 @@ import Root from "../pages/Root/Root";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
 import Installations from "../pages/Installations";
-import Apps from "../pages/Apps";
+import AllApps from "../pages/AllApps";
 import AppDetails from "../pages/AppDetails";
 
 export const router = createBrowserRouter([
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {  index: true, element: <Home />, loader: () => fetch('/apps.json') },
-      {  path: "apps", element: <Apps />, loader: () => fetch('/apps.json') },
+      {  path: "apps", element: <AllApps />, loader: () => fetch('/apps.json') },
       {
         path: "apps/:id",
         element: <AppDetails />,
