@@ -16,7 +16,7 @@ const AppDetails = () => {
     return (
       <div className="flex items-center justify-center h-[90vh]">
         <div className='flex items-center justify-center gap-4 p-4 flex-col'>
-          <img src={ErrorImg} alt="App Not Found" className='w-76'/>
+          <img loading="lazy" src={ErrorImg} alt="App Not Found" className='w-76'/>
           <h1 className="font-bold uppercase text-4xl">OPPS!! APP NOT FOUND</h1>
           <h3 className='text-base text-gray-500'>The App you are requesting is not found on our system.  please try another apps</h3>
           <button onClick={() => navigate('/apps')} className="btn btn-lg bg-linear-to-t from-violet-700 rounded-md to-purple-500 text-white">
@@ -35,7 +35,7 @@ const AppDetails = () => {
 
       <div className="max-w-96 aspect-square bg-white shadow rounded-md flex items-center justify-center p-12 border border-gray-50">
         <div className="relative w-full h-full">
-          <img src={apps?.image} alt={apps?.title} className='object-cover rounded-md w-full'/>
+          <img loading="lazy" src={apps?.image} alt={apps?.title} className='object-cover rounded-md w-full'/>
         </div>
       </div>
 
@@ -48,7 +48,7 @@ const AppDetails = () => {
         <div className="flex flex-wrap gap-12 border-y border-gray-100 py-8">
           <div className="flex flex-col gap-1">
             <div className="flex items-start gap-2 flex-col">
-              <img src={DownlaodImg} alt='Donwload Icons' className='w-6 h-6'/>
+              <img loading="lazy" src={DownlaodImg} alt='Donwload Icons' className='w-6 h-6'/>
               <span className="text-sm font-semibold uppercase tracking-wider opacity-60">Downloads</span>
             </div>
             <span className="text-4xl font-bold text-gray-900">{apps?.downloads}</span>
@@ -56,7 +56,7 @@ const AppDetails = () => {
 
           <div className="flex flex-col gap-1">
             <div className="flex items-start gap-2 flex-col">
-              <img src={RatingImg} alt='Donwload Icons' className='w-6 h-6'/>
+              <img loading="lazy" src={RatingImg} alt='Donwload Icons' className='w-6 h-6'/>
               <span className="text-sm font-semibold uppercase tracking-wider opacity-60">Average Ratings</span>
             </div>
             <span className="text-4xl font-bold text-gray-900">{apps?.ratingAvg}</span>
@@ -64,7 +64,7 @@ const AppDetails = () => {
 
           <div className="flex flex-col gap-1">
             <div className="flex items-start gap-2 flex-col">
-              <img src={ReviewImg} alt='Donwload Icons' className='w-6 h-6'/>
+              <img loading="lazy" src={ReviewImg} alt='Donwload Icons' className='w-6 h-6'/>
               <span className="text-sm font-semibold uppercase tracking-wider opacity-60">Total Reviews</span>
             </div>
             <span className="text-4xl font-bold text-gray-900">{apps?.reviews}</span>

@@ -51,7 +51,7 @@ const Installations = () => {
         {sortedApps.map((app) => (
           <div key={app.id} className="flex items-center md:flex-row flex-col bg-white border border-base-200 overflow-hidden">
             <figure className="w-24 sm:w-32 md:w-40 md:p-10 p-4  shrink-0">
-              <img src={app.image} alt={app.title} className="h-full w-full object-cover" referrerPolicy="no-referrer"/>
+              <img loading="lazy" src={app.image} alt={app.title} className="h-full w-full object-cover" referrerPolicy="no-referrer"/>
             </figure>
             <div className="card-body p-4 sm:p-6 md:flex-row justify-between flex-col gap-4 items-center">
               <div className="space-y-1">

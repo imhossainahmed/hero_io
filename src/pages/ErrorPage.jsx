@@ -9,7 +9,7 @@ const ErrorPage = () => {
       <NavBar />
       <div className="flex flex-col items-center h-screen justify-center min-h-[60vh] text-center space-y-8 px-4">
         <div>
-          <img src={ErrorImg} alt='404 Image' className='w-96'/>
+          <img loading="lazy" src={ErrorImg} alt='404 Image' className='w-96'/>
         </div>
         <div className="space-y-4">
           <h2 className="text-4xl font-bold uppercase">Oops, page not found!</h2>

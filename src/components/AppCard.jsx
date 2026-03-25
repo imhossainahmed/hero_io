@@ -7,6 +7,7 @@ const AppCard = ({ app }) => {
     <div className="card shadow-md cursor-pointer border border-gray-300/50  bg-white hover:bg-base-200 hover:-translate-y-2 transition-all duration-200   p-4 gap-4">
       <figure className="rounded-md">
         <img 
+          loading="lazy"
           src={app.image} 
           alt={app.title} 
           className="w-full h-full object-cover" 

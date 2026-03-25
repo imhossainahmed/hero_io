@@ -35,7 +35,7 @@ const NavBar = () => {
               ))}
             </ul>
           </div>
-          <a href="/" className="btn btn-ghost text-xl bg-linear-to-r from-violet-700 to-purple-500 bg-clip-text text-transparent"><img src={Logo} alt="Hero io Logo" className="w-8 h-8"/> HERO.IO</a>
+          <a href="/" className="btn btn-ghost text-xl bg-linear-to-r from-violet-700 to-purple-500 bg-clip-text text-transparent"><img loading="lazy" src={Logo} alt="Hero io Logo" className="w-8 h-8"/> HERO.IO</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-6">
